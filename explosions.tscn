@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://cmd35bfqss3a8"]
+
+[ext_resource type="Script" uid="uid://copu8oge068pk" path="res://explosions.gd" id="1_0iu52"]
+[ext_resource type="Texture2D" uid="uid://yma31lavvl7g" path="res://Assets/PNG/Effects/star1.png" id="1_vphx0"]
+[ext_resource type="AudioStream" uid="uid://vh2xmh5ihitc" path="res://Assets/Bonus/sfx_twoTone.ogg" id="3_wgd01"]
+
+[sub_resource type="Gradient" id="Gradient_0iu52"]
+offsets = PackedFloat32Array(0, 0.5754717, 0.8207547, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.7169811, 0.7169811, 0.7169811, 1, 0.84276724, 0.84276724, 0.84276724, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wgd01"]
+gradient = SubResource("Gradient_0iu52")
+
+[sub_resource type="Gradient" id="Gradient_vlq3s"]
+offsets = PackedFloat32Array(0, 0.9811321, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.6226415, 0.6226415, 0.6226415, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_t3f27"]
+gradient = SubResource("Gradient_vlq3s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bfesv"]
+particle_flag_disable_z = true
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 0, 0)
+spread = 180.0
+initial_velocity_min = 10.0
+initial_velocity_max = 100.0
+angular_velocity_min = -90.000015
+angular_velocity_max = 89.999985
+gravity = Vector3(0, 0, 0)
+color = Color(14.698366, 5.8264947, 2.9223914, 1)
+color_ramp = SubResource("GradientTexture1D_t3f27")
+color_initial_ramp = SubResource("GradientTexture1D_wgd01")
+
+[node name="explosions" type="Node2D"]
+script = ExtResource("1_0iu52")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+scale = Vector2(0.5153906, 0.50653094)
+emitting = false
+amount = 30
+texture = ExtResource("1_vphx0")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_bfesv")
+
+[node name="boom_boom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_wgd01")
+autoplay = true
