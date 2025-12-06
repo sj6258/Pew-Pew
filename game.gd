@@ -6,6 +6,13 @@ extends Node2D
 func _process(_delta):
 	pass
 	
+<<<<<<< HEAD
+=======
+	
+
+
+
+>>>>>>> 1e72abb5368f6de688d6d8c3b70eaec9342a8ff5
 
 func _on_enemy_timer_timeout():
 	var enemy_scene = enemy.instantiate()

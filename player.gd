@@ -20,4 +20,7 @@ func _physics_process(_delta):
 		var laser = laser_prefab.instantiate()
 		laser.position = position
 		get_parent().add_child(laser)
+<<<<<<< HEAD
 		$laser_sound.play()
+=======
+>>>>>>> 1e72abb5368f6de688d6d8c3b70eaec9342a8ff5
